@@ -1,0 +1,21 @@
+@use '../../styles/colorVariables.scss';
+
+
+
+.spinner {
+  border: .5rem solid colorVariables.$secondarybackgroundColor;
+  border-top: .5rem solid colorVariables.$secondaryColor;
+  border-radius: 50%;
+  width: 3.125rem;
+  height: 3.125rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

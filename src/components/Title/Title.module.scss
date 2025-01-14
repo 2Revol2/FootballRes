@@ -1,0 +1,6 @@
+@use '../../styles/colorVariables.scss';
+.title {
+    font-size: 1.5rem;
+    color: colorVariables.$secondaryColor;
+    margin-bottom: .625rem;
+}
