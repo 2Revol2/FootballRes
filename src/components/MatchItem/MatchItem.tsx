@@ -15,13 +15,13 @@ export const MatchItem = ({
       </div>
 
       <div className={s.matchInfo}>
-        
+
         <TeamInfo crest={homeTeam.crest} name={homeTeam.name} />
 
         <div className={s.center}>
           <div className={s.matchDate}>
             <span>vs</span>
-            <p>{utcDate.split("T").join(" ").slice(0, -1)} UTC</p>
+            <p>{utcDate.split("T")[1].split(':').slice(0, -1).join(':')} UTC</p>
           </div>
         </div>
 
