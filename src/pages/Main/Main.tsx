@@ -7,11 +7,13 @@ import { Matches } from "../../shared/types";
 import { Loading } from "../../components/Loading/Loading";
 export const Main = () => {
   const [todayMatches, setTodayMatches] = useState<Matches[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchTodayMatches = async () => {
       try {
         const response = await getTodayMactches();
         setTodayMatches(response.matches);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -22,14 +24,19 @@ export const Main = () => {
   return (
     <main>
       <div className={s.matchWrapper}>
-        {todayMatches.length > 0 ? (
+        {isLoading && <Loading />}
+
+        {!isLoading && todayMatches.length === 0 && (
+          <Title> Сегодня нет матчей</Title>
+        )}
+
+        {!isLoading && todayMatches.length > 0 && (
           <>
             <Title>Матчи сегодня</Title>
             <MatchesList todayMatches={todayMatches} />
           </>
-        ) : (
-          <Loading/>
         )}
+        
       </div>
     </main>
   );
