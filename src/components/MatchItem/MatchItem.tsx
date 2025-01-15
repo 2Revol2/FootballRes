@@ -1,5 +1,6 @@
 import s from "./MatchItem.module.scss";
 import { Matches } from "../../shared/types";
+import { TeamInfo } from "../TeamInfo/TeamInfo";
 export const MatchItem = ({
   homeTeam,
   awayTeam,
@@ -8,22 +9,14 @@ export const MatchItem = ({
 }: Matches) => {
   return (
     <li className={s.card}>
-        
       <div className={s.league}>
         <img width={30} height={30} src={competition.emblem} alt="" />
         <p>{competition.name}</p>
       </div>
 
       <div className={s.matchInfo}>
-        <div className={s.team}>
-          <img
-            width={40}
-            height={40}
-            src={homeTeam.crest}
-            alt={homeTeam.name}
-          />
-          <p>{homeTeam.name}</p>
-        </div>
+        
+        <TeamInfo crest={homeTeam.crest} name={homeTeam.name} />
 
         <div className={s.center}>
           <div className={s.matchDate}>
@@ -32,17 +25,9 @@ export const MatchItem = ({
           </div>
         </div>
 
-        <div className={s.team}>
-          <img
-            width={40}
-            height={40}
-            src={awayTeam.crest}
-            alt={awayTeam.name}
-          />
-          <p>{awayTeam.name}</p>
-        </div>
-
+        <TeamInfo crest={awayTeam.crest} name={awayTeam.name} />
       </div>
+
     </li>
   );
 };

@@ -9,8 +9,9 @@ type MatchesListProps = {
 export const MatchesList = ({ todayMatches }: MatchesListProps) => {
   return (
     <ul className={s.matchList}>
-      {todayMatches.map((match) => (
+      {todayMatches.map((match, index) => (
         <MatchItem
+          key={index}
           homeTeam={match.homeTeam}
           awayTeam={match.awayTeam}
           utcDate={match.utcDate}

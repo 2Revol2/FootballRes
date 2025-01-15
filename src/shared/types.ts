@@ -2,7 +2,7 @@ type League = {
   emblem: string;
   name: string;
 };
-type Team = {
+export type Team = {
   name: string;
   crest: string;
 };
