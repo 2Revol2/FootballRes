@@ -8,6 +8,7 @@ import { Loading } from "../../components/Loading/Loading";
 export const Main = () => {
   const [todayMatches, setTodayMatches] = useState<Matches[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   useEffect(() => {
     const fetchTodayMatches = async () => {
       try {
@@ -21,22 +22,40 @@ export const Main = () => {
     fetchTodayMatches();
   }, []);
 
+  const filteredMatches = todayMatches.filter(
+    (match) =>
+      match.homeTeam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      match.awayTeam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      match.competition.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <main>
-      <div className={s.matchWrapper}>
+      <div className={isLoading ? s.loading : s.matchWrapper}>
         {isLoading && <Loading />}
-
         {!isLoading && todayMatches.length === 0 && (
           <Title> Сегодня нет матчей</Title>
         )}
 
         {!isLoading && todayMatches.length > 0 && (
           <>
-            <Title>Матчи сегодня</Title>
-            <MatchesList todayMatches={todayMatches} />
+            <div className={s.header}>
+              {filteredMatches.length === 0 ? (
+                <Title>Похоже такого матча нет</Title>
+              ) : (
+                <Title>Матчи сегодня</Title>
+              )}
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+
+            {filteredMatches && <MatchesList todayMatches={filteredMatches} />}
           </>
         )}
-        
       </div>
     </main>
   );

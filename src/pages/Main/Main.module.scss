@@ -1,7 +1,30 @@
+@use '../../styles/colorVariables.scss';
 .matchWrapper {
     margin-top: 1.875rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    input {
+        outline: none;
+        border: none;
+        background-color: colorVariables.$secondarybackgroundColor;
+        border-radius: 1.25rem;
+        padding: .625rem 1.25rem;
+        width: 31.25rem;
+        font-size: 1rem;
+        color: colorVariables.$accentColor;
+    }
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.875rem;
 }
