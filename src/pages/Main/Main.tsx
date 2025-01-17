@@ -2,28 +2,24 @@ import { useEffect, useState } from "react";
 import { MatchesList } from "../../components/MatchList/MatchesList";
 import { Title } from "../../components/Title/Title";
 import s from "./Main.module.scss";
-import { getTodayMactches } from "../../api/getTodayMatches";
-import { Matches } from "../../shared/types";
+import { Matches } from "../../shared/api/match/types";
 import { Loading } from "../../components/Loading/Loading";
-export const Main = () => {
-  const [todayMatches, setTodayMatches] = useState<Matches[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+import { matchStore } from "../../store/api/match-store/match-store";
+import { observer } from "mobx-react-lite";
+
+export const Main = observer(() => {
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const { todayMatchData, getTodayMatchAction } = matchStore;
+
   useEffect(() => {
-    const fetchTodayMatches = async () => {
-      try {
-        const response = await getTodayMactches();
-        setTodayMatches(response.matches);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchTodayMatches();
+    getTodayMatchAction();
   }, []);
 
-  const filteredMatches = todayMatches.filter(
-    (match) =>
+  const TodayMatches =
+    todayMatchData?.state == "fulfilled" ? todayMatchData?.value.matches : [];
+
+  const filteredMatches = TodayMatches.filter(
+    (match: Matches) =>
       match.homeTeam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       match.awayTeam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       match.competition.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -31,13 +27,17 @@ export const Main = () => {
 
   return (
     <main>
-      <div className={isLoading ? s.loading : s.matchWrapper}>
-        {isLoading && <Loading />}
-        {!isLoading && todayMatches.length === 0 && (
+      <div
+        className={
+          todayMatchData?.state === "pending" ? s.loading : s.matchWrapper
+        }
+      >
+        {!TodayMatches || (todayMatchData?.state === "pending" && <Loading />)}
+        {todayMatchData?.state === "fulfilled" && TodayMatches.length === 0 && (
           <Title> Сегодня нет матчей</Title>
         )}
 
-        {!isLoading && todayMatches.length > 0 && (
+        {todayMatchData?.state === "fulfilled" && TodayMatches.length > 0 && (
           <>
             <div className={s.header}>
               {filteredMatches.length === 0 ? (
@@ -59,4 +59,4 @@ export const Main = () => {
       </div>
     </main>
   );
-};
+});
