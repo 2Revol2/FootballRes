@@ -1,5 +1,5 @@
 import s from "./MatchItem.module.scss";
-import { Matches } from "../../shared/types";
+import { Matches } from "../../shared/api/match/types";
 import { TeamInfo } from "../TeamInfo/TeamInfo";
 export const MatchItem = ({
   homeTeam,
