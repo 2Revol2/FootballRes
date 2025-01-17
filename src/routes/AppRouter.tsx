@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Paths } from "../shared/routerPaths/config";
+import { Paths } from "../shared/config/routeConfig";
 import { Main } from "../pages/Main/Main";
 import { ResultMatches } from "../pages/ResultMatches/ResultMatches";
 import { FutureMatches } from "../pages/FutureMatches/FutureMatches";

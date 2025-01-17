@@ -1,6 +1,6 @@
 import s from "./Navbar.module.scss";
 import { NavLink } from "react-router-dom";
-import { Paths } from "../../shared/routerPaths/config";
+import { Paths } from "../../shared/config/routeConfig";
 export const Header = () => {
   return (
     <header className={s.header}>
