@@ -1,0 +1,6 @@
+@use "../../styles/colorVariables.scss";
+.score {
+    color: colorVariables.$hoverColor;
+    font-size: 1.5rem;
+    font-weight: bold;
+}

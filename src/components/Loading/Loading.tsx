@@ -1,4 +1,7 @@
 import s from "./Loading.module.scss";
-export const Loading = () => {
-  return <div className={s.spinner}></div>;
+type Props = {
+  variants: "yellow" | "green";
+}
+export const Loading = ({variants = 'yellow'}:Props) => {
+  return <div className={`${s.spinner} ${s[variants]}`}></div>;
 };

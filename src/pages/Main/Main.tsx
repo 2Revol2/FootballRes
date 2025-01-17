@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { MatchesList } from "../../components/MatchList/MatchesList";
 import { Title } from "../../components/Title/Title";
 import s from "./Main.module.scss";
@@ -6,24 +6,21 @@ import { Matches } from "../../shared/api/match/types";
 import { Loading } from "../../components/Loading/Loading";
 import { matchStore } from "../../store/api/match-store/match-store";
 import { observer } from "mobx-react-lite";
+import { Input } from "../../components/Input/Input";
+import { useFilteredMatches } from "../../hooks/useFilteredMatches";
 
 export const Main = observer(() => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const { todayMatchData, getTodayMatchAction } = matchStore;
 
   useEffect(() => {
     getTodayMatchAction();
   }, []);
 
-  const TodayMatches =
+  const todayMatches: Matches[] =
     todayMatchData?.state == "fulfilled" ? todayMatchData?.value.matches : [];
 
-  const filteredMatches = TodayMatches.filter(
-    (match: Matches) =>
-      match.homeTeam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      match.awayTeam.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      match.competition.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const { filteredMatches, searchQuery, setSearchQuery } =
+    useFilteredMatches(todayMatches);
 
   return (
     <main>
@@ -32,12 +29,15 @@ export const Main = observer(() => {
           todayMatchData?.state === "pending" ? s.loading : s.matchWrapper
         }
       >
-        {!TodayMatches || (todayMatchData?.state === "pending" && <Loading />)}
-        {todayMatchData?.state === "fulfilled" && TodayMatches.length === 0 && (
+        {!todayMatches ||
+          (todayMatchData?.state === "pending" && (
+            <Loading variants="yellow" />
+          ))}
+        {todayMatchData?.state === "fulfilled" && todayMatches.length === 0 && (
           <Title> Сегодня нет матчей</Title>
         )}
 
-        {todayMatchData?.state === "fulfilled" && TodayMatches.length > 0 && (
+        {todayMatchData?.state === "fulfilled" && todayMatches.length > 0 && (
           <>
             <div className={s.header}>
               {filteredMatches.length === 0 ? (
@@ -45,15 +45,13 @@ export const Main = observer(() => {
               ) : (
                 <Title>Матчи сегодня</Title>
               )}
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+              <Input
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
               />
             </div>
 
-            {filteredMatches && <MatchesList todayMatches={filteredMatches} />}
+            {filteredMatches && <MatchesList showDate={false} matches={filteredMatches} />}
           </>
         )}
       </div>

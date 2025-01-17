@@ -1,14 +1,17 @@
-@use '../../styles/colorVariables.scss';
-
-
+@use "../../styles/colorVariables.scss";
 
 .spinner {
-  border: .5rem solid colorVariables.$secondarybackgroundColor;
-  border-top: .5rem solid colorVariables.$secondaryColor;
+  border: 0.5rem solid colorVariables.$secondarybackgroundColor;
   border-radius: 50%;
   width: 3.125rem;
   height: 3.125rem;
   animation: spin 1s linear infinite;
+}
+.yellow {
+  border-top: 0.5rem solid colorVariables.$secondaryColor;
+}
+.green {
+  border-top: 0.5rem solid colorVariables.$primaryColor;
 }
 
 @keyframes spin {

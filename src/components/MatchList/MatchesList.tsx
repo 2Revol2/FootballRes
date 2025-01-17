@@ -3,19 +3,22 @@ import { Matches } from "../../shared/api/match/types";
 import s from "./MatchList.module.scss";
 
 type MatchesListProps = {
-  todayMatches: Matches[];
+  matches: Matches[];
+  showDate: boolean
 };
 
-export const MatchesList = ({ todayMatches }: MatchesListProps) => {
+export const MatchesList = ({ matches, showDate }: MatchesListProps) => {
   return (
     <ul className={s.matchList}>
-      {todayMatches.map((match, index) => (
+      {matches.map((match, index) => (
         <MatchItem
           key={index}
           homeTeam={match.homeTeam}
           awayTeam={match.awayTeam}
           utcDate={match.utcDate}
           competition={match.competition}
+          score={match?.score}
+          showDate={showDate}
         />
       ))}
     </ul>

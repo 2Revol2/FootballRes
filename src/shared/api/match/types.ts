@@ -14,7 +14,7 @@ type ScoreTime = {
 type Score = {
   fullTime: ScoreTime;
 };
-export type Matches = {
+export interface Matches {
   homeTeam: Team;
   awayTeam: Team;
   utcDate: string;

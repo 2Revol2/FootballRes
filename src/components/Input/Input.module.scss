@@ -1,0 +1,11 @@
+@use "../../styles/colorVariables.scss";
+.inputField {
+  outline: none;
+  border: none;
+  background-color: colorVariables.$secondarybackgroundColor;
+  border-radius: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  width: 31.25rem;
+  font-size: 1rem;
+  color: colorVariables.$accentColor;
+}
