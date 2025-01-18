@@ -10,16 +10,22 @@
 a {
   text-decoration: none;
 }
+
+body,
+.app, #root {
+  background-color: #2e2e2e;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+}
 .container {
   display: flex;
   flex-direction: column;
   max-width: 81.25rem;
   margin: 0 auto;
-}
-body,
-.app, #root {
-  background-color: #2e2e2e;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  flex: 1;
 }

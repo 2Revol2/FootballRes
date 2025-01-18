@@ -1,0 +1,33 @@
+@use "../../styles/colorVariables.scss";
+.footer {
+    margin-top: 3.125rem;
+    width: 100%;
+    background-color: colorVariables.$secondarybackgroundColor;
+    padding: 0.5rem;
+    bottom: 0;
+}
+.footerWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 0;
+    gap: 3.125rem;
+    color: colorVariables.$accentColor;
+    max-width: 81.25rem;
+    margin: 0 auto;
+}
+.linkWrapp {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+    li {
+        font-size: 12px;
+        a {
+            color: colorVariables.$accentColor;
+        }
+    }
+}
+.copyright {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(150, 143, 143);
+}
