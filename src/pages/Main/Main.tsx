@@ -51,7 +51,7 @@ export const Main = observer(() => {
               />
             </div>
 
-            {filteredMatches && <MatchesList  variants="yellow" showDate={false} matches={filteredMatches} />}
+            {filteredMatches && <MatchesList showFullDate={false}  variants="yellow" showDate={false} matches={filteredMatches} />}
           </>
         )}
       </div>

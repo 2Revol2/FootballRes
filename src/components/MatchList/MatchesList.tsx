@@ -5,10 +5,11 @@ import s from "./MatchList.module.scss";
 type MatchesListProps = {
   matches: Matches[];
   showDate: boolean
+  showFullDate: boolean
   variants: "green" | "yellow" | "lightgreen";
 };
 
-export const MatchesList = ({ matches, showDate, variants }: MatchesListProps) => {
+export const MatchesList = ({ matches, showDate, variants, showFullDate }: MatchesListProps) => {
   return (
     <ul className={s.matchList}>
       {matches.map((match, index) => (
@@ -21,6 +22,7 @@ export const MatchesList = ({ matches, showDate, variants }: MatchesListProps) =
           competition={match.competition}
           score={match?.score}
           showDate={showDate}
+          showFullDate={showFullDate}
         />
       ))}
     </ul>

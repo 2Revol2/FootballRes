@@ -6,6 +6,7 @@ import { Score } from "../Score/Score";
 interface Props extends Matches {
   showDate: boolean;
   variants: "green" | "yellow" | "lightgreen";
+  showFullDate: boolean;
 }
 
 export const MatchItem = ({
@@ -15,6 +16,7 @@ export const MatchItem = ({
   competition,
   score,
   showDate,
+  showFullDate,
   variants = "yellow",
 }: Props) => {
   const justTime = utcDate.split("T")[1].split(":").slice(0, -1).join(":");
@@ -32,7 +34,18 @@ export const MatchItem = ({
         <div className={s.center}>
           <div className={s.matchDate}>
             <span>vs</span>
-            <p>{showDate ? onlyDate : `${justTime} UTC`}</p>
+            <div>
+              {showFullDate ? (
+                <div>
+                  <p>{`${justTime} UTC`}</p>
+                  <p>{onlyDate}</p>
+                </div>
+              ) : showDate ? (
+                <p>{onlyDate}</p>
+              ) : (
+                <p>{`${justTime} UTC`}</p>
+              )}
+            </div>
           </div>
         </div>
         <Score score={score?.fullTime.away} />

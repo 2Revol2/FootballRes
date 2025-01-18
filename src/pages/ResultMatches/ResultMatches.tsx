@@ -13,13 +13,13 @@ export const ResultMatches = observer(() => {
   const { resultMatchData, getResultMatchAction } = matchStore;
 
   const today = new Date();
-  const twoWeeksAgo = new Date();
-  twoWeeksAgo.setDate(today.getDate() - 7);
+  const oneWeekAgo = new Date();
+  oneWeekAgo.setDate(today.getDate() - 7);
 
   useEffect(() => {
     getResultMatchAction(
       dayjs(today).format("YYYY-MM-DD"),
-      dayjs(twoWeeksAgo).format("YYYY-MM-DD")
+      dayjs(oneWeekAgo).format("YYYY-MM-DD")
     );
   }, []);
   const matchesResult: Matches[] =
@@ -54,7 +54,7 @@ export const ResultMatches = observer(() => {
                   setSearchQuery={setSearchQuery}
                 />
               </div>
-              {filteredMatches && <MatchesList variants="green" showDate={true} matches={filteredMatches} />}
+              {filteredMatches && <MatchesList showFullDate={false} variants="green" showDate={true} matches={filteredMatches} />}
             </>
           )}
       </div>

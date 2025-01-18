@@ -1,6 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import { fromPromise, IPromiseBasedObservable } from "mobx-utils";
-import { getResultMatches, getTodayMatches } from "../../../shared/api/match/api";
+import {
+  getFutureMatches,
+  getResultMatches,
+  getTodayMatches,
+} from "../../../shared/api/match/api";
 
 class MatchStore {
   constructor() {
@@ -8,6 +12,7 @@ class MatchStore {
   }
   todayMatchData?: IPromiseBasedObservable<any>;
   resultMatchData?: IPromiseBasedObservable<any>;
+  futureMatchData?: IPromiseBasedObservable<any>;
   getTodayMatchAction = async () => {
     try {
       this.todayMatchData = fromPromise(getTodayMatches());
@@ -18,7 +23,15 @@ class MatchStore {
 
   getResultMatchAction = async (dateTo: string, dateFrom: string) => {
     try {
-      this.resultMatchData = fromPromise(getResultMatches(dateFrom, dateTo))
+      this.resultMatchData = fromPromise(getResultMatches(dateFrom, dateTo));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getFutureMatchAction = async (dateTo: string, dateFrom: string) => {
+    try {
+      this.futureMatchData = fromPromise(getFutureMatches(dateFrom, dateTo));
     } catch (error) {
       console.log(error);
     }

@@ -12,3 +12,13 @@ export const getResultMatches = async (dateFrom: string, dateTo: string) =>
       },
     })
   ).data;
+
+export const getFutureMatches = async (dateFrom: string, dateTo: string) =>
+  (
+    await baseInstance.get("matches", {
+      params: {
+        dateFrom: dateFrom,
+        dateTo: dateTo,
+      },
+    })
+  ).data;
