@@ -1,6 +1,15 @@
-@use '../../styles/colorVariables.scss';
+@use "../../styles/colorVariables.scss";
 .title {
-    font-size: 1.5rem;
-    color: colorVariables.$secondaryColor;
-    margin-bottom: .625rem;
+  font-size: 1.5rem;
+  color: colorVariables.$secondaryColor;
+  margin-bottom: 0.625rem;
+}
+.yellow {
+  color: colorVariables.$secondaryColor;
+}
+.green {
+  color: colorVariables.$primaryColor;
+}
+.lightgreen {
+  color: colorVariables.$hoverColor;
 }

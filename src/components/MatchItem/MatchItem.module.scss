@@ -5,7 +5,6 @@
   flex-direction: column;
   position: relative;
   justify-content: center;
-  border: 0.0625rem solid colorVariables.$secondaryColor;
   border-radius: 0.625rem;
   padding:  .625rem;
   width: 26rem;
@@ -52,3 +51,13 @@
     font-size: 0.7rem;
   }
 }
+.yellow {
+  border: 0.0625rem solid colorVariables.$secondaryColor;
+}
+.green {
+  border: 0.0625rem solid colorVariables.$primaryColor;
+}
+.lightgreen {
+  border: 0.0625rem solid colorVariables.$hoverColor;
+}
+

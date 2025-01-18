@@ -45,16 +45,16 @@ export const ResultMatches = observer(() => {
             <>
               <div className={s.header}>
                 {filteredMatches.length === 0 ? (
-                  <Title>Похоже такого матча нет</Title>
+                  <Title variants="lightgreen">Похоже такого матча нет</Title>
                 ) : (
-                  <Title>Результаты матчей за последнии 7 дней</Title>
+                  <Title variants="lightgreen">Результаты матчей за последнии 7 дней</Title>
                 )}
                 <Input
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
                 />
               </div>
-              {filteredMatches && <MatchesList showDate={true} matches={filteredMatches} />}
+              {filteredMatches && <MatchesList variants="green" showDate={true} matches={filteredMatches} />}
             </>
           )}
       </div>

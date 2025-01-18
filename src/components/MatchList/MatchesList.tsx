@@ -5,13 +5,15 @@ import s from "./MatchList.module.scss";
 type MatchesListProps = {
   matches: Matches[];
   showDate: boolean
+  variants: "green" | "yellow" | "lightgreen";
 };
 
-export const MatchesList = ({ matches, showDate }: MatchesListProps) => {
+export const MatchesList = ({ matches, showDate, variants }: MatchesListProps) => {
   return (
     <ul className={s.matchList}>
       {matches.map((match, index) => (
         <MatchItem
+        variants={variants}
           key={index}
           homeTeam={match.homeTeam}
           awayTeam={match.awayTeam}

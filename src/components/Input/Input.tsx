@@ -9,7 +9,7 @@ export const Input = ({ searchQuery, setSearchQuery }: Props) => {
     <input
     className={s.inputField}
       type="text"
-      placeholder="Search..."
+      placeholder="Поиск..."
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
     />

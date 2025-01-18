@@ -34,16 +34,16 @@ export const Main = observer(() => {
             <Loading variants="yellow" />
           ))}
         {todayMatchData?.state === "fulfilled" && todayMatches.length === 0 && (
-          <Title> Сегодня нет матчей</Title>
+          <Title variants="yellow"> Сегодня нет матчей</Title>
         )}
 
         {todayMatchData?.state === "fulfilled" && todayMatches.length > 0 && (
           <>
             <div className={s.header}>
               {filteredMatches.length === 0 ? (
-                <Title>Похоже такого матча нет</Title>
+                <Title variants="yellow">Похоже такого матча нет</Title>
               ) : (
-                <Title>Матчи сегодня</Title>
+                <Title variants="yellow">Матчи сегодня</Title>
               )}
               <Input
                 searchQuery={searchQuery}
@@ -51,7 +51,7 @@ export const Main = observer(() => {
               />
             </div>
 
-            {filteredMatches && <MatchesList showDate={false} matches={filteredMatches} />}
+            {filteredMatches && <MatchesList  variants="yellow" showDate={false} matches={filteredMatches} />}
           </>
         )}
       </div>

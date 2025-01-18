@@ -5,6 +5,7 @@ import { Score } from "../Score/Score";
 
 interface Props extends Matches {
   showDate: boolean;
+  variants: "green" | "yellow" | "lightgreen";
 }
 
 export const MatchItem = ({
@@ -14,11 +15,12 @@ export const MatchItem = ({
   competition,
   score,
   showDate,
+  variants = "yellow",
 }: Props) => {
   const justTime = utcDate.split("T")[1].split(":").slice(0, -1).join(":");
-  const FullDate = utcDate.split("T")[0];
+  const onlyDate = utcDate.split("T")[0];
   return (
-    <li className={s.card}>
+    <li className={`${s.card} ${s[variants]}`}>
       <div className={s.league}>
         <img width={30} height={30} src={competition.emblem} alt="" />
         <p>{competition.name}</p>
@@ -30,7 +32,7 @@ export const MatchItem = ({
         <div className={s.center}>
           <div className={s.matchDate}>
             <span>vs</span>
-            <p>{showDate ? FullDate : `${justTime} UTC`}</p>
+            <p>{showDate ? onlyDate : `${justTime} UTC`}</p>
           </div>
         </div>
         <Score score={score?.fullTime.away} />
