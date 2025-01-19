@@ -14,7 +14,7 @@ export const FutureMatches = observer(() => {
   const today = new Date();
   today.setDate(today.getDate() + 1);
   const nextWeek = new Date();
-  nextWeek.setDate(today.getDate() + 7);
+  nextWeek.setDate(today.getDate() + 8);
   const { futureMatchData, getFutureMatchAction } = matchStore;
   useEffect(() => {
     getFutureMatchAction(
