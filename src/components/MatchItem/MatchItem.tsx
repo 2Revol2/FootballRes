@@ -9,16 +9,19 @@ interface Props extends Matches {
   showFullDate: boolean;
 }
 
-export const MatchItem = ({
-  homeTeam,
-  awayTeam,
-  utcDate,
-  competition,
-  score,
-  showDate,
-  showFullDate,
-  variants = "yellow",
-}: Props) => {
+export const MatchItem = (props: Props) => {
+
+  const {
+    homeTeam,
+    awayTeam,
+    utcDate,
+    competition,
+    score,
+    showDate,
+    showFullDate,
+    variants = "yellow",
+  } = props;
+
   const justTime = utcDate.split("T")[1].split(":").slice(0, -1).join(":");
   const onlyDate = utcDate.split("T")[0];
   return (

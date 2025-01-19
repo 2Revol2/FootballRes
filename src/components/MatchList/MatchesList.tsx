@@ -4,17 +4,19 @@ import s from "./MatchList.module.scss";
 
 type MatchesListProps = {
   matches: Matches[];
-  showDate: boolean
-  showFullDate: boolean
+  showDate: boolean;
+  showFullDate: boolean;
   variants: "green" | "yellow" | "lightgreen";
 };
 
-export const MatchesList = ({ matches, showDate, variants, showFullDate }: MatchesListProps) => {
+export const MatchesList = (props: MatchesListProps) => {
+  const { matches, showDate, variants, showFullDate } = props;
+
   return (
     <ul className={s.matchList}>
       {matches.map((match, index) => (
         <MatchItem
-        variants={variants}
+          variants={variants}
           key={index}
           homeTeam={match.homeTeam}
           awayTeam={match.awayTeam}
