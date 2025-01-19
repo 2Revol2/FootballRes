@@ -45,9 +45,9 @@ export const FutureMatches = observer(() => {
             <>
               <div className={s.header}>
                 {filteredMatches.length === 0 ? (
-                  <Title variants="yellow">Похоже такого матча нет</Title>
+                  <Title variants="green">Похоже такого матча нет</Title>
                 ) : (
-                  <Title variants="yellow">Матчи на 7 дней вперед</Title>
+                  <Title variants="green">Матчи на 7 дней вперед</Title>
                 )}
                 <Input
                   searchQuery={searchQuery}

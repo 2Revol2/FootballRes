@@ -47,7 +47,7 @@ export const ResultMatches = observer(() => {
                 {filteredMatches.length === 0 ? (
                   <Title variants="lightgreen">Похоже такого матча нет</Title>
                 ) : (
-                  <Title variants="lightgreen">Результаты матчей за последнии 7 дней</Title>
+                  <Title variants="lightgreen">Результаты матчей за последние 7 дней</Title>
                 )}
                 <Input
                   searchQuery={searchQuery}
