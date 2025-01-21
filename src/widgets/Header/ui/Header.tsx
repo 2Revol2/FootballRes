@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import s from "./header.module.scss";
+import s from "./Header.module.scss";
 import { Paths } from "../../../shared/config/routeConfig";
 import { Navbar } from "../components/Navbar/Navbar";
 
