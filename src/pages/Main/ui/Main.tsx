@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { MatchesList } from "../../components/MatchList/MatchesList";
-import { Title } from "../../shared/ui/Title/Title";
+import { MatchesList } from "../../../widgets/MatchList/index";
+import { Title } from "../../../shared/ui/Title/Title";
 import s from "./Main.module.scss";
-import { Matches } from "../../shared/api/match/types";
-import { Loading } from "../../shared/ui/Loading/Loading";
-import { matchStore } from "../../shared/lib/store/api/match-store/match-store";
+import { Matches } from "../../../shared/api/match/types";
+import { Loading } from "../../../shared/ui/Loading/Loading";
+import { matchStore } from "../../../shared/lib/store/api/match-store/match-store";
 import { observer } from "mobx-react-lite";
-import { Input } from "../../shared/ui/Input/Input";
-import { useFilteredMatches } from "../../shared/lib/hooks/useFilteredMatches";
+import { Input } from "../../../shared/ui/Input/Input";
+import { useFilteredMatches } from "../../../shared/lib/hooks/useFilteredMatches";
 
 export const Main = observer(() => {
   const { todayMatchData, getTodayMatchAction } = matchStore;

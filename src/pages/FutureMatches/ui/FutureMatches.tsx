@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import s from "./FutureMatches.module.scss";
-import { matchStore } from "../../shared/lib/store/api/match-store/match-store";
+import { matchStore } from "../../../shared/lib/store/api/match-store/match-store";
 import dayjs from "dayjs";
-import { Matches } from "../../shared/api/match/types";
-import { useFilteredMatches } from "../../shared/lib/hooks/useFilteredMatches";
-import { Loading } from "../../shared/ui/Loading/Loading";
-import { Title } from "../../shared/ui/Title/Title";
-import { Input } from "../../shared/ui/Input/Input";
-import { MatchesList } from "../../components/MatchList/MatchesList";
+import { Matches } from "../../../shared/api/match/types";
+import { useFilteredMatches } from "../../../shared/lib/hooks/useFilteredMatches";
+import { Loading } from "../../../shared/ui/Loading/Loading";
+import { Title } from "../../../shared/ui/Title/Title";
+import { Input } from "../../../shared/ui/Input/Input";
+import { MatchesList } from "../../../widgets/MatchList/index";
 import { observer } from "mobx-react-lite";
 
 export const FutureMatches = observer(() => {

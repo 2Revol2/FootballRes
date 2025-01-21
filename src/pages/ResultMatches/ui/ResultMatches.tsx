@@ -1,14 +1,14 @@
 import { observer } from "mobx-react-lite";
-import { matchStore } from "../../shared/lib/store/api/match-store/match-store";
+import { matchStore } from "../../../shared/lib/store/api/match-store/match-store";
 import dayjs from "dayjs";
 import { useEffect } from "react";
-import { Matches } from "../../shared/api/match/types";
-import { Title } from "../../shared/ui/Title/Title";
+import { Matches } from "../../../shared/api/match/types";
+import { Title } from "../../../shared/ui/Title/Title";
 import s from "./ResultMatches.module.scss";
-import { Loading } from "../../shared/ui/Loading/Loading";
-import { useFilteredMatches } from "../../shared/lib/hooks/useFilteredMatches";
-import { Input } from "../../shared/ui/Input/Input";
-import { MatchesList } from "../../components/MatchList/MatchesList";
+import { Loading } from "../../../shared/ui/Loading/Loading";
+import { useFilteredMatches } from "../../../shared/lib/hooks/useFilteredMatches";
+import { Input } from "../../../shared/ui/Input/Input";
+import { MatchesList } from "../../../widgets/MatchList/index";
 export const ResultMatches = observer(() => {
   const { resultMatchData, getResultMatchAction } = matchStore;
 

@@ -1,5 +1,5 @@
-import { MatchItem } from "../MatchItem/MatchItem";
-import { Matches } from "../../shared/api/match/types";
+import { MatchItem } from "../../../entitites/MatchItem/index";
+import { Matches } from "../../../shared/api/match/types";
 import s from "./MatchList.module.scss";
 
 type MatchesListProps = {

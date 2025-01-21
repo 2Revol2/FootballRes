@@ -1,0 +1,18 @@
+@use '../../../../app/styles/variables/colorVariables.scss';
+.navList {
+    display: flex;
+    gap: 1.875rem;
+  }
+  .link {
+    color: #fff;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    &:hover {
+      color: colorVariables.$hoverColor;
+    }
+  }
+  .active {
+    color: colorVariables.$hoverColor;
+    text-transform: uppercase;
+  }
+  

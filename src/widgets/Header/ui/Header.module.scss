@@ -1,9 +1,8 @@
-@use '../../app/styles/variables/colorVariables.scss';
+@use "../../../app/styles/variables/colorVariables.scss";
 .header {
   width: 100%;
   background-color: colorVariables.$secondarybackgroundColor;
-  border-bottom: .0625rem solid rgba(0, 0, 0, 0.2);
- 
+  border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.2);
 }
 .headerWrapper {
   display: flex;
@@ -15,24 +14,6 @@
   max-width: 81.25rem;
   margin: 0 auto;
 }
-
-.navList {
-  display: flex;
-  gap: 1.875rem;
-}
-.link {
-  color: #fff;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  &:hover {
-    color: colorVariables.$hoverColor;
-  }
-}
-.active {
-  color: colorVariables.$hoverColor;
-  text-transform: uppercase;
-}
-
 .logo {
   color: colorVariables.$primaryColor;
   transition: all 0.3s ease;

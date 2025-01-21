@@ -1,7 +1,7 @@
 import s from "./MatchItem.module.scss";
-import { Matches } from "../../shared/api/match/types";
-import { TeamInfo } from "../../shared/ui/TeamInfo/TeamInfo";
-import { Score } from "../../shared/ui/Score/Score";
+import { Matches } from "../../../shared/api/match/types";
+import { TeamInfo } from "../../../shared/ui/TeamInfo/TeamInfo";
+import { Score } from "../../../shared/ui/Score/Score";
 
 interface Props extends Matches {
   showDate: boolean;

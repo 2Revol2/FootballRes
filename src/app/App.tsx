@@ -1,8 +1,8 @@
-import { Footer } from "../components/Footer/Footer";
-import { Header } from "../components/Navbar/Navbar";
 import "react-toastify/dist/ReactToastify.css";
+import { Footer } from "../widgets/Footer/index";
+import { Header } from "../widgets/Header/index";
 import { ToastContainer } from "react-toastify";
-import { AppRouter } from "../routes/AppRouter";
+import { AppRouter } from "./provides/routes/index";
 export const App = () => {
   return (
     <div className="app">
