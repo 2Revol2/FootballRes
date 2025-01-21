@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Matches } from "../shared/api/match/types";
+import { Matches } from "../../api/match/types";
 
 export function useFilteredMatches(matches: Matches[]) {
   const [searchQuery, setSearchQuery] = useState<string>("");

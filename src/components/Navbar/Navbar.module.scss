@@ -1,4 +1,4 @@
-@use "../../styles/colorVariables.scss";
+@use '../../app/styles/variables/colorVariables.scss';
 .header {
   width: 100%;
   background-color: colorVariables.$secondarybackgroundColor;

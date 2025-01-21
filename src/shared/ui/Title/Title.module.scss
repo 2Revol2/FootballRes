@@ -1,4 +1,4 @@
-@use "../../styles/colorVariables.scss";
+@use '../../../app/styles/variables/colorVariables.scss';
 .title {
   font-size: 1.5rem;
   color: colorVariables.$secondaryColor;

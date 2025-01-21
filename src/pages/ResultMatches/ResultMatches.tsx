@@ -1,13 +1,13 @@
 import { observer } from "mobx-react-lite";
-import { matchStore } from "../../store/api/match-store/match-store";
+import { matchStore } from "../../shared/lib/store/api/match-store/match-store";
 import dayjs from "dayjs";
 import { useEffect } from "react";
 import { Matches } from "../../shared/api/match/types";
-import { Title } from "../../components/Title/Title";
+import { Title } from "../../shared/ui/Title/Title";
 import s from "./ResultMatches.module.scss";
-import { Loading } from "../../components/Loading/Loading";
-import { useFilteredMatches } from "../../hooks/useFilteredMatches";
-import { Input } from "../../components/Input/Input";
+import { Loading } from "../../shared/ui/Loading/Loading";
+import { useFilteredMatches } from "../../shared/lib/hooks/useFilteredMatches";
+import { Input } from "../../shared/ui/Input/Input";
 import { MatchesList } from "../../components/MatchList/MatchesList";
 export const ResultMatches = observer(() => {
   const { resultMatchData, getResultMatchAction } = matchStore;
@@ -47,14 +47,23 @@ export const ResultMatches = observer(() => {
                 {filteredMatches.length === 0 ? (
                   <Title variants="lightgreen">Похоже такого матча нет</Title>
                 ) : (
-                  <Title variants="lightgreen">Результаты матчей за последние 7 дней</Title>
+                  <Title variants="lightgreen">
+                    Результаты матчей за последние 7 дней
+                  </Title>
                 )}
                 <Input
                   searchQuery={searchQuery}
                   setSearchQuery={setSearchQuery}
                 />
               </div>
-              {filteredMatches && <MatchesList showFullDate={false} variants="green" showDate={true} matches={filteredMatches} />}
+              {filteredMatches && (
+                <MatchesList
+                  showFullDate={false}
+                  variants="green"
+                  showDate={true}
+                  matches={filteredMatches}
+                />
+              )}
             </>
           )}
       </div>

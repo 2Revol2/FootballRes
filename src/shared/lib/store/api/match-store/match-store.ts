@@ -4,7 +4,7 @@ import {
   getFutureMatches,
   getResultMatches,
   getTodayMatches,
-} from "../../../shared/api/match/api";
+} from "../../../../api/match/api";
 
 class MatchStore {
   constructor() {

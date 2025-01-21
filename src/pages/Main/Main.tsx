@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { MatchesList } from "../../components/MatchList/MatchesList";
-import { Title } from "../../components/Title/Title";
+import { Title } from "../../shared/ui/Title/Title";
 import s from "./Main.module.scss";
 import { Matches } from "../../shared/api/match/types";
-import { Loading } from "../../components/Loading/Loading";
-import { matchStore } from "../../store/api/match-store/match-store";
+import { Loading } from "../../shared/ui/Loading/Loading";
+import { matchStore } from "../../shared/lib/store/api/match-store/match-store";
 import { observer } from "mobx-react-lite";
-import { Input } from "../../components/Input/Input";
-import { useFilteredMatches } from "../../hooks/useFilteredMatches";
+import { Input } from "../../shared/ui/Input/Input";
+import { useFilteredMatches } from "../../shared/lib/hooks/useFilteredMatches";
 
 export const Main = observer(() => {
   const { todayMatchData, getTodayMatchAction } = matchStore;
@@ -51,7 +51,14 @@ export const Main = observer(() => {
               />
             </div>
 
-            {filteredMatches && <MatchesList showFullDate={false}  variants="yellow" showDate={false} matches={filteredMatches} />}
+            {filteredMatches && (
+              <MatchesList
+                showFullDate={false}
+                variants="yellow"
+                showDate={false}
+                matches={filteredMatches}
+              />
+            )}
           </>
         )}
       </div>

@@ -1,5 +1,4 @@
-@use "../../styles/colorVariables.scss";
-
+@use '../../../app/styles/variables/colorVariables.scss';
 .spinner {
   border: 0.5rem solid colorVariables.$secondarybackgroundColor;
   border-radius: 50%;

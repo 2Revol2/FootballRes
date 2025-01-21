@@ -1,5 +1,5 @@
 import s from "./TeamInfo.module.scss";
-import { Team } from "../../shared/api/match/types";
+import { Team } from "../../api/match/types";
 
 export const TeamInfo = ({ name, crest }: Team) => {
   return (

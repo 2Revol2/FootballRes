@@ -1,7 +1,7 @@
 import s from "./MatchItem.module.scss";
 import { Matches } from "../../shared/api/match/types";
-import { TeamInfo } from "../TeamInfo/TeamInfo";
-import { Score } from "../Score/Score";
+import { TeamInfo } from "../../shared/ui/TeamInfo/TeamInfo";
+import { Score } from "../../shared/ui/Score/Score";
 
 interface Props extends Matches {
   showDate: boolean;
@@ -10,7 +10,6 @@ interface Props extends Matches {
 }
 
 export const MatchItem = (props: Props) => {
-
   const {
     homeTeam,
     awayTeam,
