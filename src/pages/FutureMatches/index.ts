@@ -1,1 +1,4 @@
-export { FutureMatches } from "./ui/FutureMatches";
+import { FutureMatchesAsync } from "./ui/FutureMatches.async";
+export {
+    FutureMatchesAsync as FutureMatches,
+};

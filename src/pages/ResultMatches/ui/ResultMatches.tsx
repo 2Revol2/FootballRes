@@ -9,7 +9,7 @@ import { Loading } from "../../../shared/ui/Loading/Loading";
 import { useFilteredMatches } from "../../../shared/lib/hooks/useFilteredMatches";
 import { Input } from "../../../shared/ui/Input/Input";
 import { MatchesList } from "../../../widgets/MatchList/index";
-export const ResultMatches = observer(() => {
+const ResultMatches = observer(() => {
   const { resultMatchData, getResultMatchAction } = matchStore;
 
   const today = new Date();
@@ -70,3 +70,5 @@ export const ResultMatches = observer(() => {
     </main>
   );
 });
+ 
+export default ResultMatches

@@ -10,7 +10,7 @@ import { Input } from "../../../shared/ui/Input/Input";
 import { MatchesList } from "../../../widgets/MatchList/index";
 import { observer } from "mobx-react-lite";
 
-export const FutureMatches = observer(() => {
+const FutureMatches = observer(() => {
   const today = new Date();
   today.setDate(today.getDate() + 1);
   const nextWeek = new Date();
@@ -68,3 +68,4 @@ export const FutureMatches = observer(() => {
     </main>
   );
 });
+export default FutureMatches

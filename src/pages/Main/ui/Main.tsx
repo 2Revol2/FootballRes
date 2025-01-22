@@ -9,7 +9,7 @@ import { observer } from "mobx-react-lite";
 import { Input } from "../../../shared/ui/Input/Input";
 import { useFilteredMatches } from "../../../shared/lib/hooks/useFilteredMatches";
 
-export const Main = observer(() => {
+const Main = observer(() => {
   const { todayMatchData, getTodayMatchAction } = matchStore;
 
   useEffect(() => {
@@ -65,3 +65,5 @@ export const Main = observer(() => {
     </main>
   );
 });
+
+export default Main
