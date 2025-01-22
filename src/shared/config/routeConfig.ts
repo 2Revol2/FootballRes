@@ -1,5 +1,6 @@
 // import { RouteProps } from "react-router-dom";
 
+
 export const enum Paths {
   MAIN = "/",
   RESULT = "/matches/result",
@@ -21,7 +22,7 @@ export const enum Paths {
 // export const routeConfig: Record<AppRoutes, RouteProps> = {
 //   [AppRoutes.MAIN]: {
 //     path: RoutePath.main,
-//     element: <Main/>,
+//     element: <Main />,
 //   },
 //   [AppRoutes.RESULT]: {
 //     path: RoutePath.result,
